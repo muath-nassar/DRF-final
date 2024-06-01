@@ -257,7 +257,7 @@ def order_endpoint(request, order_id):
         return Response({'message': message,'order': serialized_order.data})
     if request.method == 'DELETE':
         if not is_manager(request):
-            return Response({'error': 'You should me a manager to delete an order'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({'error': 'You should be a manager to delete an order'}, status=status.HTTP_401_UNAUTHORIZED)
         order.delete()
         return Response({'message': 'Order deleted'})
 
